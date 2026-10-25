@@ -1,0 +1,30 @@
+{
+  "identifier": "6A1B2C3D-PUFFERFISHRUN-STOREKIT",
+  "nonRenewingSubscriptions": [],
+  "products": [
+    {
+      "displayPrice": "2.99",
+      "familyShareable": true,
+      "internalID": "6740100001",
+      "localizations": [
+        {
+          "description": "Removes all interstitial ads. Optional reward videos stay available.",
+          "displayName": "Remove Ads",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "digitaldiamonds.pufferfishrun.removeads",
+      "referenceName": "Remove Ads",
+      "type": "NonConsumable"
+    }
+  ],
+  "settings": {
+    "_askToBuyEnabled": false,
+    "_failTransactionsEnabled": false
+  },
+  "subscriptionGroups": [],
+  "version": {
+    "major": 3,
+    "minor": 0
+  }
+}

@@ -1,10 +1,8 @@
 extends SceneTree
-## Renders the iOS launch images / boot splash from the ocean shader — the exact first frame of
-## the splash sequence, so launch screen → boot splash → splash is one seamless image (PopPulse).
+## Renders the iOS launch images: one flat Constants.LAUNCH_BG, the same colour as Godot's boot
+## screen (show_image = false, so Godot never draws its own logo) and the first frame of the
+## splash sequence, so launch → boot → studio logo is seamless.
 ##   godot --path godot -s res://tools/launch_images.gd
-
-const SHADER := preload("res://shaders/ocean.gdshader")
-
 
 func _initialize() -> void:
 	await process_frame
@@ -16,16 +14,7 @@ func _initialize() -> void:
 		root.add_child(vp)
 		var rect := ColorRect.new()
 		rect.size = Vector2(spec[1])
-		var mat := ShaderMaterial.new()
-		mat.shader = SHADER
-		var zone: Array = Constants.ZONE_COLORS[0]
-		mat.set_shader_parameter("top_color", zone[0])
-		mat.set_shader_parameter("mid_color", zone[1])
-		mat.set_shader_parameter("bottom_color", zone[2])
-		mat.set_shader_parameter("ray_alpha", zone[3])
-		mat.set_shader_parameter("aspect", float(spec[1].x) / spec[1].y)
-		mat.set_shader_parameter("animate", 0.0) # a still frame
-		rect.material = mat
+		rect.color = Constants.LAUNCH_BG
 		vp.add_child(rect)
 		await RenderingServer.frame_post_draw
 		await RenderingServer.frame_post_draw

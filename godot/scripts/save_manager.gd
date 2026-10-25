@@ -12,7 +12,6 @@ signal cosmetics_changed
 
 const SAVE_PATH := "user://save.cfg"
 const TEST_SAVE_PATH := "user://save_test.cfg" ## used by tests/*.gd so they never touch real progress
-const LEGACY_SINGLETON := "LegacyDefaults"
 
 var high_score: int = 0:
 	set(value):
@@ -70,6 +69,10 @@ var language := "auto":
 		language = v
 		_apply_language()
 		_save()
+
+# Ads consent flow (UMP + ATT) — remembered so later launches start ads without prompts
+var ads_consent_done := false
+var ads_personalized := false
 
 # Daily reward / missions / challenge
 var daily_last_claim := ""
@@ -250,6 +253,8 @@ func _load() -> void:
 		free_coins_used = int(_cfg.get_value("progress", "freeCoinsUsed", 0))
 		ads_removed = bool(_cfg.get_value("purchases", "adsRemoved", false))
 		vibration = bool(_cfg.get_value("settings", "vibration", true))
+		ads_consent_done = bool(_cfg.get_value("ads", "consentDone", false))
+		ads_personalized = bool(_cfg.get_value("ads", "personalized", false))
 		screen_shake = bool(_cfg.get_value("settings", "screenShake", true))
 		language = str(_cfg.get_value("settings", "language", "auto"))
 		daily_last_claim = str(_cfg.get_value("daily", "lastClaim", ""))
@@ -267,15 +272,17 @@ func _load() -> void:
 	flush()
 
 
-## US-25: read the three keys the Swift build left in NSUserDefaults, exactly once.
+## US-25: take over the three keys the Swift build left in NSUserDefaults, exactly once (on the
+## first launch of the Godot build, when there is no save.cfg yet). iOS only; tests never read it.
 func _migrate_legacy() -> void:
-	if Engine.has_singleton(LEGACY_SINGLETON):
-		var legacy: Dictionary = Engine.get_singleton(LEGACY_SINGLETON).read_legacy_defaults()
-		high_score = int(legacy.get("highScore", 0))
-		selected_skin = str(legacy.get("selectedSkin", "default"))
-		is_muted = bool(legacy.get("isMuted", false))
-		if OS.is_debug_build():
-			print("[SaveManager] migrated legacy defaults: ", legacy)
+	if OS.has_feature("ios") and not is_test_run():
+		var legacy := LegacyDefaults.read()
+		if not legacy.is_empty():
+			high_score = int(legacy.get("highScore", 0))
+			selected_skin = str(legacy.get("selectedSkin", "default"))
+			is_muted = bool(legacy.get("isMuted", false))
+			if OS.is_debug_build():
+				print("[SaveManager] migrated legacy defaults: ", legacy)
 	_cfg.set_value("meta", "migrated", true)
 
 
@@ -303,6 +310,8 @@ func _write() -> void:
 	_cfg.set_value("progress", "freeCoinsUsed", free_coins_used)
 	_cfg.set_value("purchases", "adsRemoved", ads_removed)
 	_cfg.set_value("settings", "vibration", vibration)
+	_cfg.set_value("ads", "consentDone", ads_consent_done)
+	_cfg.set_value("ads", "personalized", ads_personalized)
 	_cfg.set_value("settings", "screenShake", screen_shake)
 	_cfg.set_value("settings", "language", language)
 	_cfg.set_value("daily", "lastClaim", daily_last_claim)

@@ -8,13 +8,19 @@
 
 config_version=5
 
+[admob]
+
+general/android/enabled=false
+general/ios/app_id="ca-app-pub-3366446717708247~2391980768"
+
 [application]
 
 config/name="Pufferfish Run"
 config/version="1.1"
 run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.7", "Mobile")
-boot_splash/bg_color=Color(0.306, 0.753, 0.792, 1)
+boot_splash/bg_color=Color(0.02, 0.05, 0.08, 1)
+boot_splash/show_image=false
 boot_splash/stretch_mode=4
 boot_splash/image="res://assets/launch/launch@3x.png"
 config/icon="res://assets/images/app_icon.jpg"
@@ -41,6 +47,10 @@ window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/handheld/orientation=1
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/admob/plugin.cfg", "res://addons/godotx_att/plugin.cfg", "res://addons/godotx_revenue_cat/plugin.cfg")
+
 [gui]
 
 theme/custom="res://assets/fonts/game_theme.tres"
@@ -61,4 +71,4 @@ rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
 anti_aliasing/quality/msaa_2d=1
-environment/defaults/default_clear_color=Color(0.04, 0.16, 0.29, 1)
+environment/defaults/default_clear_color=Color(0.02, 0.05, 0.08, 1)

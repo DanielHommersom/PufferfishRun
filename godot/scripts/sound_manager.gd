@@ -58,6 +58,13 @@ func _ready() -> void:
 
 	_apply_mute(SaveManager.is_muted)
 	SaveManager.mute_changed.connect(_apply_mute)
+	Haptics.start_engine()
+
+
+func _notification(what: int) -> void:
+	# iOS stops the haptic engine while the app is in the background.
+	if what == NOTIFICATION_APPLICATION_RESUMED or what == NOTIFICATION_APPLICATION_FOCUS_IN:
+		Haptics.start_engine()
 
 
 # ── Public API ────────────────────────────────────────────────────

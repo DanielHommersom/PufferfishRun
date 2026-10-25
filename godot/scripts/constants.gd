@@ -139,6 +139,9 @@ const ZONE_COLORS := [
 	[Color(0.015, 0.040, 0.100), Color(0.005, 0.020, 0.060), Color(0.000, 0.008, 0.025), 0.0], # the abyss
 ]
 const DEEP_ZONE := 4 ## used as the game-over backdrop
+## Launch colour: iOS launch screen, Godot boot screen and the start of the splash sequence share
+## this one flat colour, so launch → boot → studio logo has no visible jump.
+const LAUNCH_BG := Color(0.02, 0.05, 0.08)
 const RAY_COLOR := Color(0.365, 0.831, 0.867)
 
 const FONT_PATH := "res://assets/fonts/game_font.tres"

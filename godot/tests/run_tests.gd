@@ -20,6 +20,7 @@ func _initialize() -> void:
 	await _test_shop()
 	await _test_revive()
 	await _test_new_features()
+	_test_legacy()
 	print("\n%s — %d failure(s)" % ["PASS" if _failures == 0 else "FAIL", _failures])
 	quit(1 if _failures > 0 else 0)
 
@@ -302,3 +303,11 @@ func _test_new_features() -> void:
 	var cfg := ConfigFile.new()
 	cfg.load(sm.TEST_SAVE_PATH)
 	check(cfg.get_value("settings", "vibration") == false and cfg.get_value("settings", "screenShake") == false, "toggles are saved")
+
+
+func _test_legacy() -> void:
+	print("US-25 legacy migration")
+	var reader = load("res://scripts/legacy_defaults.gd")
+	var d: Dictionary = reader.read(ProjectSettings.globalize_path("res://tests/fixtures/legacy_defaults.plist"))
+	check(d.get("highScore") == 27 and d.get("selectedSkin") == "lava" and d.get("isMuted") == false and not d.has("__gads_x"), "reads highScore / selectedSkin / isMuted from a binary plist")
+	check(reader.read("/nonexistent.plist").is_empty(), "missing file → nothing to migrate")

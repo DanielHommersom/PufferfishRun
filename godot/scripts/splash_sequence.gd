@@ -3,7 +3,8 @@ extends CanvasLayer
 ## Launch splashes over the already-built menu, matching PopPulse:
 ## 1. Digital Diamonds — blue glow, logo springs in, two shimmer pulses with a shine sweep, fade out.
 ## 2. Pufferfish Run — the fish pops in, bubbles rise, the title pulses in on the beat.
-## Starts on the same ocean frame as the iOS launch image, so the hand-over is invisible.
+## Starts on Constants.LAUNCH_BG — the colour of the iOS launch screen and Godot's boot screen —
+## so the hand-over is invisible; the ocean is revealed for the game splash.
 ## A tap skips the current splash.
 
 signal finished
@@ -38,7 +39,7 @@ func _ready() -> void:
 	_bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_root.add_child(_bg)
 	_shade = ColorRect.new()
-	_shade.color = Color(0.0, 0.0, 0.02, 0.0)
+	_shade.color = Constants.LAUNCH_BG # fully opaque at start = the launch screen
 	_shade.size = vs
 	_shade.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_root.add_child(_shade)
@@ -88,8 +89,7 @@ func _studio() -> void:
 	_root.add_child(logo)
 
 	var t := create_tween().set_parallel(true)
-	# Starts exactly on the launch-screen image, then dims for the logo.
-	t.tween_property(_shade, "color:a", 0.82, 0.45)
+	# The studio logo appears on the launch colour (the shade stays opaque).
 	t.tween_property(glow, "modulate:a", 1.0, 0.6).set_ease(Tween.EASE_OUT)
 	t.tween_property(logo, "modulate:a", 1.0, 0.6).set_ease(Tween.EASE_OUT)
 	t.tween_property(logo, "scale", Vector2.ONE, 0.7).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)

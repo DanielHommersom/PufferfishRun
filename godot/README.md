@@ -29,9 +29,9 @@ Debug builds, in the game scene: **H** toggles hitboxes, **1/2/3** force jellyfi
 | US-15 studio splash | ✅ (PopPulse style) | Vector logo `scripts/dd_logo.gd` (shared with PopPulse) inside `SplashSequence` |
 | US-16 splash · US-17 menu · US-18 skins · US-19 game over | ✅ | **B2 fixed** (NEW BEST only when strictly higher). Skins in `data/skins.tres`; grid scrolls if > 6 |
 | US-20 SFX · US-21 mute | ✅ | WAVs generated at startup with the exact Swift formulas; audio session Ambient + mix with others; drawn speaker icon |
-| US-22 ATT/UMP/AdMob · US-23 interstitials | ⚠️ code done, native part unbuilt | `scripts/ad_manager.gd` (full logic, no-op without plugin) + `ios/plugins/PufferAds` (Obj-C++ source, UMP before ATT). Needs SDK download + build — see its README |
+| US-22 ATT/UMP/AdMob · US-23 interstitials | ✅ (same plugins as PopPulse) | `scripts/ad_manager.gd` on Poing AdMob 5.1 (`addons/admob`, UMP included) + Godotx ATT 3.0 (`ios/plugins/att`). App `~2391980768`, rewarded `/9385094409`, interstitial `/8765817424` |
 | US-24 iOS export | ⚠️ preset done | `export_presets.cfg`: same bundle id, 1.1 (build 2), min iOS 15, icon, launch-screen colour, privacy manifest. Team ID/signing empty; `SKAdNetworkItems` only contains Google's own id — paste Google's full list before release |
-| US-25 migration | ⚠️ code done, native part unbuilt | `SaveManager._migrate_legacy()` + `LegacyDefaults` in the same plugin |
+| US-25 migration | ✅ (to test on device) | `scripts/legacy_defaults.gd` reads the Swift build's NSUserDefaults plist directly (binary plist parser, no native code) |
 | US-26 moving pillars | ✅ behind flag | `Constants.MOVING_OBSTACLES_ENABLED = false`, range 60 px |
 | US-27 depth label | ✅ behind flag | `Constants.DEPTH_LABEL_ENABLED = false`, placed bottom-left |
 
@@ -42,7 +42,7 @@ Debug builds, in the game scene: **H** toggles hitboxes, **1/2/3** force jellyfi
 | Interstitial rules | `AdManager.should_show_interstitial` | Grace 5 lifetime games, ≥ 75 s apart, every 3rd game, never after a new best or a rewarded video; shown on the PLAY AGAIN / MAIN MENU tap |
 | Coins + skin shop | `coin.gd`, `skin_select.gd`, `SaveManager` | 60 % of pillars carry a coin; skins unlock by score **or** coins (60–500); "2× COINS" rewarded on game over |
 | Settings | `scenes/settings.tscn` | Sound, Remove Ads, restore purchases, UMP privacy options, privacy policy, support, version |
-| Remove Ads (IAP) | `scripts/purchase_manager.gd` | Non-consumable `digitaldiamonds.pufferfishrun.removeads`; turns off interstitials only. Uses Godot's official iOS `InAppStore` plugin (godot-ios-plugins) — put it in `ios/plugins/` and enable it in the export preset. "NO ADS" button in the menu |
+| Remove Ads (IAP) | `scripts/purchase_manager.gd` | Non-consumable `digitaldiamonds.pufferfishrun.removeads` via RevenueCat (Godotx RevenueCat 2.5, `ios/plugins/revenue_cat`), entitlement `no_ads`. StoreKit test file: `ios/PufferfishRun.storekit` |
 | Shop | `scripts/skin_select.gd`, `cosmetics.gd` | Tabs SKINS (6 earnable + 6 shop-only) / HATS (7) / TRAILS (4); equip without leaving; rewarded "+25 FREE" max 3× per day |
 
 Tests and screenshot scripts use `user://save_test.cfg`, never the real save.
