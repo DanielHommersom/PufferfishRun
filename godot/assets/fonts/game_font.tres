@@ -1,0 +1,11 @@
+[gd_resource type="SystemFont" load_steps=2 format=3]
+
+[sub_resource type="SystemFont" id="SystemFont_cjk"]
+font_names = PackedStringArray("Hiragino Sans", "Hiragino Kaku Gothic ProN", "PingFang SC", "Noto Sans CJK JP", "Yu Gothic")
+font_weight = 700
+
+[resource]
+font_names = PackedStringArray("Courier New", "Courier", "Courier Prime", "Liberation Mono", "Monospace")
+font_weight = 700
+antialiasing = 1
+fallbacks = Array[Font]([SubResource("SystemFont_cjk")])

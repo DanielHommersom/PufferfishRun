@@ -1,0 +1,152 @@
+[gd_resource type="Resource" script_class="SkinLibrary" load_steps=15 format=3]
+
+[ext_resource type="Script" path="res://scripts/skin_definition.gd" id="1_skin"]
+[ext_resource type="Script" path="res://scripts/skin_library.gd" id="2_lib"]
+
+[sub_resource type="Resource" id="Skin_default"]
+script = ExtResource("1_skin")
+id = "default"
+display_name = "PUFFERFISH"
+unlock_score = 0
+price = 0
+body = Color(0.957, 0.659, 0.196, 1)
+belly = Color(0.941, 0.471, 0.125, 1)
+spine = Color(1.0, 0.976, 0.902, 1)
+eye = Color(0.29, 0.565, 0.851, 1)
+tail = Color(0.957, 0.573, 0.102, 1)
+
+[sub_resource type="Resource" id="Skin_ghost"]
+script = ExtResource("1_skin")
+id = "ghost"
+display_name = "GHOST"
+unlock_score = 10
+price = 60
+body = Color(0.863, 0.91, 0.941, 1)
+belly = Color(0.722, 0.816, 0.878, 1)
+spine = Color(1, 1, 1, 1)
+eye = Color(1.0, 0.267, 0.267, 1)
+tail = Color(0.784, 0.863, 0.91, 1)
+
+[sub_resource type="Resource" id="Skin_lava"]
+script = ExtResource("1_skin")
+id = "lava"
+display_name = "LAVA"
+unlock_score = 20
+price = 120
+body = Color(0.91, 0.251, 0.125, 1)
+belly = Color(0.753, 0.125, 0.063, 1)
+spine = Color(1.0, 0.667, 0.0, 1)
+eye = Color(1, 1, 0, 1)
+tail = Color(0.753, 0.188, 0.063, 1)
+
+[sub_resource type="Resource" id="Skin_ocean"]
+script = ExtResource("1_skin")
+id = "ocean"
+display_name = "DEEP SEA"
+unlock_score = 35
+price = 200
+body = Color(0.102, 0.416, 0.667, 1)
+belly = Color(0.051, 0.29, 0.478, 1)
+spine = Color(0.533, 0.867, 1.0, 1)
+eye = Color(0.0, 1.0, 0.667, 1)
+tail = Color(0.051, 0.29, 0.478, 1)
+
+[sub_resource type="Resource" id="Skin_gold"]
+script = ExtResource("1_skin")
+id = "gold"
+display_name = "GOLDEN"
+unlock_score = 50
+price = 300
+body = Color(0.969, 0.761, 0.204, 1)
+belly = Color(0.878, 0.627, 0.125, 1)
+spine = Color(1.0, 0.98, 0.8, 1)
+eye = Color(1.0, 0.4, 0.0, 1)
+tail = Color(0.878, 0.627, 0.125, 1)
+
+[sub_resource type="Resource" id="Skin_shadow"]
+script = ExtResource("1_skin")
+id = "shadow"
+display_name = "SHADOW"
+unlock_score = 75
+price = 500
+body = Color(0.102, 0.102, 0.18, 1)
+belly = Color(0.051, 0.051, 0.102, 1)
+spine = Color(0.608, 0.349, 0.714, 1)
+eye = Color(0.608, 0.349, 0.714, 1)
+tail = Color(0.051, 0.051, 0.102, 1)
+
+[sub_resource type="Resource" id="Skin_mint"]
+script = ExtResource("1_skin")
+id = "mint"
+display_name = "MINT"
+unlock_score = -1
+price = 90
+body = Color(0.553, 0.89, 0.749, 1)
+belly = Color(0.4, 0.78, 0.62, 1)
+spine = Color(1.0, 1.0, 1.0, 1)
+eye = Color(0.18, 0.42, 0.33, 1)
+tail = Color(0.38, 0.76, 0.6, 1)
+
+[sub_resource type="Resource" id="Skin_bubblegum"]
+script = ExtResource("1_skin")
+id = "bubblegum"
+display_name = "BUBBLEGUM"
+unlock_score = -1
+price = 110
+body = Color(1.0, 0.6, 0.78, 1)
+belly = Color(0.94, 0.45, 0.65, 1)
+spine = Color(1.0, 0.95, 0.98, 1)
+eye = Color(0.3, 0.5, 0.95, 1)
+tail = Color(0.95, 0.42, 0.64, 1)
+
+[sub_resource type="Resource" id="Skin_sunset"]
+script = ExtResource("1_skin")
+id = "sunset"
+display_name = "SUNSET"
+unlock_score = -1
+price = 160
+body = Color(1.0, 0.52, 0.33, 1)
+belly = Color(0.95, 0.35, 0.35, 1)
+spine = Color(1.0, 0.88, 0.45, 1)
+eye = Color(0.45, 0.15, 0.55, 1)
+tail = Color(0.85, 0.28, 0.42, 1)
+
+[sub_resource type="Resource" id="Skin_toxic"]
+script = ExtResource("1_skin")
+id = "toxic"
+display_name = "TOXIC"
+unlock_score = -1
+price = 220
+body = Color(0.6, 0.95, 0.2, 1)
+belly = Color(0.45, 0.8, 0.1, 1)
+spine = Color(0.2, 0.2, 0.2, 1)
+eye = Color(0.9, 0.1, 0.7, 1)
+tail = Color(0.35, 0.7, 0.1, 1)
+
+[sub_resource type="Resource" id="Skin_ice"]
+script = ExtResource("1_skin")
+id = "ice"
+display_name = "ICE"
+unlock_score = -1
+price = 280
+body = Color(0.78, 0.93, 1.0, 1)
+belly = Color(0.6, 0.85, 0.98, 1)
+spine = Color(0.4, 0.75, 1.0, 1)
+eye = Color(0.1, 0.45, 0.9, 1)
+tail = Color(0.55, 0.82, 0.98, 1)
+
+[sub_resource type="Resource" id="Skin_royal"]
+script = ExtResource("1_skin")
+id = "royal"
+display_name = "ROYAL"
+unlock_score = -1
+price = 400
+body = Color(0.42, 0.25, 0.8, 1)
+belly = Color(0.32, 0.18, 0.65, 1)
+spine = Color(1.0, 0.82, 0.25, 1)
+eye = Color(1.0, 0.82, 0.25, 1)
+tail = Color(0.3, 0.16, 0.62, 1)
+
+[resource]
+script = ExtResource("2_lib")
+skins = Array[ExtResource("1_skin")]([SubResource("Skin_default"), SubResource("Skin_ghost"), SubResource("Skin_lava"), SubResource("Skin_ocean"), SubResource("Skin_gold"), SubResource("Skin_shadow"), SubResource("Skin_mint"), SubResource("Skin_bubblegum"), SubResource("Skin_sunset"), SubResource("Skin_toxic"), SubResource("Skin_ice"), SubResource("Skin_royal")])

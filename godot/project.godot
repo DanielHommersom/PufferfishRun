@@ -1,0 +1,64 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Pufferfish Run"
+config/version="1.1"
+run/main_scene="res://scenes/menu.tscn"
+config/features=PackedStringArray("4.7", "Mobile")
+boot_splash/bg_color=Color(0.306, 0.753, 0.792, 1)
+boot_splash/stretch_mode=4
+boot_splash/image="res://assets/launch/launch@3x.png"
+config/icon="res://assets/images/app_icon.jpg"
+
+[audio]
+
+general/ios/mix_with_others=true
+
+[autoload]
+
+SaveManager="*res://scripts/save_manager.gd"
+SceneRouter="*res://scripts/scene_router.gd"
+SoundManager="*res://scripts/sound_manager.gd"
+AdManager="*res://scripts/ad_manager.gd"
+PurchaseManager="*res://scripts/purchase_manager.gd"
+
+[display]
+
+window/size/viewport_width=393
+window/size/viewport_height=852
+window/size/window_width_override=393
+window/size/window_height_override=852
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation=1
+
+[gui]
+
+theme/custom="res://assets/fonts/game_theme.tres"
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://assets/i18n/strings.en.translation", "res://assets/i18n/strings.nl.translation", "res://assets/i18n/strings.de.translation", "res://assets/i18n/strings.fr.translation", "res://assets/i18n/strings.es.translation", "res://assets/i18n/strings.pt_BR.translation", "res://assets/i18n/strings.ja.translation")
+
+[physics]
+
+common/physics_jitter_fix=0.0
+3d/physics_engine="Jolt Physics"
+common/physics_interpolation=true
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"
+renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
+anti_aliasing/quality/msaa_2d=1
+environment/defaults/default_clear_color=Color(0.04, 0.16, 0.29, 1)
