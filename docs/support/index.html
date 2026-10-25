@@ -3,81 +3,165 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#4ec0ca">
   <title>Pufferfish Run — Support</title>
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 40px 24px;
-      color: #111;
-      line-height: 1.7;
-    }
-    h1 { font-size: 24px; font-weight: 600; }
-    h2 { font-size: 17px; font-weight: 600; margin-top: 32px; }
-    p, li { font-size: 15px; }
-    ul { padding-left: 20px; }
-    .meta { color: #666; font-size: 13px; margin-bottom: 32px; }
-    a { color: #f4a832; }
-    .contact-box {
-      background: #f5f5f5;
-      border-radius: 12px;
-      padding: 24px;
-      margin-top: 32px;
-    }
-  </style>
+  <meta name="description" content="Help and answers for Pufferfish Run, the one-tap arcade game by Digital Diamonds.">
+  <link rel="icon" href="../assets/icon.jpg">
+  <link rel="apple-touch-icon" href="../assets/icon.jpg">
+  <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
- 
-  <h1>Pufferfish Run Support</h1>
-  <p class="meta">Survive the reef — we've got you covered</p>
- 
-  <h2>Frequently Asked Questions</h2>
- 
-  <h2>How do I play?</h2>
-  <p>Hold your finger on the screen to inflate the pufferfish and rise. Release to deflate and sink. Navigate through the gaps in the coral without touching the walls or enemies. The longer you survive, the harder it gets.</p>
- 
-  <h2>What is the inflate mechanic?</h2>
-  <p>The more you inflate, the larger your hitbox becomes — making it harder to fit through tight gaps. This is the core risk/reward mechanic of the game. Inflate quickly to rise fast, but stay small enough to squeeze through the coral.</p>
- 
-  <h2>What is the danger ring around the fish?</h2>
-  <p>The danger ring is a visual indicator that appears when your inflate level is high. It pulses faster and turns red as you approach maximum inflation — warning you that your hitbox is at its largest and gaps will be hardest to navigate.</p>
- 
-  <h2>How do I unlock new skins?</h2>
-  <p>Skins are unlocked by reaching score milestones. From the main menu, tap "Select Skin" to see all available skins and the score required to unlock each one. Your progress toward each skin is shown as a bar on the skin card.</p>
- 
-  <h2>My high score is not saving</h2>
-  <p>Your high score is stored locally on your device. Make sure you are not force-closing the app immediately after the game over screen appears — wait for the score panel to fully load before closing. If the issue persists, try restarting the app.</p>
- 
-  <h2>When do ads appear?</h2>
-  <p>A short ad may appear every few deaths. If an ad appears at an unexpected moment, simply close it using the X button and continue playing. Ads help keep the game free.</p>
- 
-  <h2>How do I turn off the sound?</h2>
-  <p>Tap the speaker icon in the bottom right corner of the screen — it is available both on the main menu and during gameplay. Your sound preference is saved automatically.</p>
- 
-  <h2>The game feels too hard — is there a way to adjust difficulty?</h2>
-  <p>Pufferfish Run is designed to be challenging by nature. The difficulty ramps up gradually as your score increases — speed, gap size and enemy frequency all scale over time. Stick with it — most players find their rhythm after a few runs.</p>
- 
-  <h2>What are the enemies and when do they appear?</h2>
-  <p>Three enemy types appear as your score increases:</p>
-  <ul>
-    <li><strong>Jellyfish</strong> — appears from score 5, moves in a slow sine wave</li>
-    <li><strong>Shark</strong> — appears from score 15, charges horizontally</li>
-    <li><strong>Sea Urchin</strong> — appears from score 25, bounces diagonally</li>
-  </ul>
-  <p>Avoid touching any enemy or it is game over immediately.</p>
- 
-  <h2>The app crashed or is not working correctly</h2>
-  <p>Try closing the app fully and reopening it. If the issue persists, delete and reinstall the app from the App Store. Your high score is stored locally so it may be reset after reinstalling.</p>
- 
-  <div class="contact-box">
-    <h2 style="margin-top: 0">Still need help?</h2>
-    <p>If your question is not answered above, send us an email and we will get back to you as soon as possible.</p>
-    <p><a href="mailto:digitaldiamonds.ai@gmail.com">digitaldiamonds.ai@gmail.com</a></p>
+  <div class="bubbles" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+  <div class="page">
+    <header class="hero">
+      <img src="../assets/icon.jpg" alt="Pufferfish Run app icon">
+      <h1 class="title">PUFFERFISH RUN</h1>
+      <p class="subtitle">SURVIVE THE REEF — WE'VE GOT YOU</p>
+      <nav class="tabs" aria-label="Pages">
+        <a class="tab" href="../">PRIVACY</a>
+        <a class="tab" href="./" aria-current="page">SUPPORT</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="panel">
+        <h2>Playing the game</h2>
+
+        <details open>
+          <summary>How do I play?</summary>
+          <div><p>Hold your finger on the screen to puff up and rise. Let go to shrink and sink. Swim through the gaps in the coral without touching the coral or any sea creature. Every gap you pass scores a point, and the ocean gets faster and tighter the further you go.</p></div>
+        </details>
+
+        <details>
+          <summary>Why does my fish get bigger?</summary>
+          <div><p>That is the trick of the game: the more you puff up, the bigger your fish becomes and the harder it is to squeeze through a gap. Rise quickly, but shrink back in time. The ring around the fish turns red when you are almost at full size.</p></div>
+        </details>
+
+        <details>
+          <summary>Which creatures should I avoid?</summary>
+          <div>
+            <ul>
+              <li><strong>Jellyfish</strong>: drifts up and down in a wave</li>
+              <li><strong>Shark</strong>: charges straight at you</li>
+              <li><strong>Sea urchin</strong>: bounces around diagonally</li>
+            </ul>
+            <p>They show up as your score rises. One touch and the run is over.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>What are the zones?</summary>
+          <div><p>As you score, you dive deeper: from the Shallow Reef through the Kelp Forest, Open Water, the Shipwreck and the Deep Ocean, down to The Abyss, where only your fish's glow lights the way.</p></div>
+        </details>
+
+        <details>
+          <summary>What do the power-ups do?</summary>
+          <div>
+            <ul>
+              <li><strong>Shield</strong>: saves you from one hit</li>
+              <li><strong>Magnet</strong>: pulls nearby coins towards you</li>
+              <li><strong>Slow-mo</strong>: slows the ocean down for a few seconds</li>
+            </ul>
+            <p>You can also start a run with a shield from the menu.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>The game feels too hard. Can I change the difficulty?</summary>
+          <div><p>Your first games start with extra-wide gaps to help you get going. After that the game speeds up gradually: speed, gap size and the number of creatures all scale with your score. Most players find their rhythm after a few runs.</p></div>
+        </details>
+      </section>
+
+      <section class="panel">
+        <h2>Coins, skins &amp; daily rewards</h2>
+
+        <details>
+          <summary>How do I get coins?</summary>
+          <div><p>Collect coins in the gaps while you swim, fly close past the coral for a "CLOSE!" bonus, claim your daily reward, complete daily missions and the daily challenge, or watch a short ad in the shop for free coins.</p></div>
+        </details>
+
+        <details>
+          <summary>How do I unlock skins, hats and trails?</summary>
+          <div><p>Open the shop from the main menu. Skins unlock when you reach their score, or you can buy them with coins straight away. Hats and trails are bought with coins. Tap an item you own to wear it.</p></div>
+        </details>
+
+        <details>
+          <summary>What are the daily reward, missions and challenge?</summary>
+          <div><p>Come back every day for a reward that grows with your streak. You also get new daily missions and one daily challenge. They refresh automatically each day, even without an internet connection.</p></div>
+        </details>
+
+        <details>
+          <summary>Can I continue after I crash?</summary>
+          <div><p>Once per run you can watch a short ad to continue from where you crashed, with a moment of protection to get back on track.</p></div>
+        </details>
+      </section>
+
+      <section class="panel">
+        <h2>Ads &amp; purchases</h2>
+
+        <details>
+          <summary>When do ads appear?</summary>
+          <div><p>Your first games are ad-free. After that a short ad may appear between some games, never during play. Reward ads only play when you choose them.</p></div>
+        </details>
+
+        <details>
+          <summary>How do I remove ads?</summary>
+          <div><p>Buy <em>Remove Ads</em> in the shop. It is a one-time purchase that turns off the ads between games for good. Optional reward ads, which you choose to watch, stay available.</p></div>
+        </details>
+
+        <details>
+          <summary>I bought Remove Ads but still see ads, or I have a new phone</summary>
+          <div><p>Go to <strong>Settings → Restore purchases</strong> while signed in with the same Apple ID you used to buy it. Your purchase is restored for free.</p></div>
+        </details>
+
+        <details>
+          <summary>How do I request a refund?</summary>
+          <div><p>Purchases are handled by Apple. Request a refund at <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p></div>
+        </details>
+
+        <details>
+          <summary>How do I change my ad privacy choice?</summary>
+          <div><p>In the game, open <strong>Settings → Privacy options</strong> (shown in regions where consent is required). Tracking permission can be changed in <strong>iOS Settings → Privacy &amp; Security → Tracking</strong>. Read more in our <a href="../">Privacy Policy</a>.</p></div>
+        </details>
+      </section>
+
+      <section class="panel">
+        <h2>Settings &amp; troubleshooting</h2>
+
+        <details>
+          <summary>How do I turn off the sound, vibration or screen shake?</summary>
+          <div><p>Tap the speaker icon on the menu or during play to mute. Open <strong>Settings</strong> from the main menu to switch sound, vibration and screen shake on or off and to choose a language. Your choices are saved automatically.</p></div>
+        </details>
+
+        <details>
+          <summary>Which languages are available?</summary>
+          <div><p>English, Dutch, German, French, Spanish, Brazilian Portuguese and Japanese. By default the game follows your iPhone's language.</p></div>
+        </details>
+
+        <details>
+          <summary>Is my progress saved?</summary>
+          <div><p>Yes, your progress is saved automatically on your device. Progress from the earlier version of the game (high score, skin and sound setting) carries over when you update. Deleting the app also deletes your progress, but a Remove Ads purchase can always be restored.</p></div>
+        </details>
+
+        <details>
+          <summary>The app crashed or does not work correctly</summary>
+          <div><p>Close the app completely and open it again. Make sure iOS and the app are up to date. If it keeps happening, email us with your iPhone model, iOS version and what you were doing, so we can fix it.</p></div>
+        </details>
+      </section>
+
+      <section class="panel help">
+        <h2>Still need help?</h2>
+        <p>Can't find your answer? Send us an email and we'll get back to you as soon as possible.</p>
+        <p><a class="cta" href="mailto:digitaldiamonds.ai@gmail.com?subject=Pufferfish%20Run%20support">EMAIL SUPPORT</a></p>
+        <p class="meta">DIGITALDIAMONDS.AI@GMAIL.COM</p>
+      </section>
+    </main>
   </div>
- 
-  <hr style="margin-top: 48px; border: none; border-top: 1px solid #eee;">
-  <p style="color: #999; font-size: 13px;">Pufferfish Run is developed and maintained by Digital Diamonds.</p>
- 
+
+  <div class="reef" aria-hidden="true"></div>
+  <footer>
+    <p>Pufferfish Run is developed and maintained by Digital Diamonds.</p>
+  </footer>
 </body>
 </html>

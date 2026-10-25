@@ -109,7 +109,7 @@ const FREE_COINS_PER_DAY := 3 ## rewarded "free coins" in the shop
 const FREE_COINS_AMOUNT := 25
 const REMOVE_ADS_PRODUCT_ID := "digitaldiamonds.pufferfishrun.removeads" ## non-consumable in App Store Connect
 const REMOVE_ADS_FALLBACK_PRICE := "€2,99" ## shown until StoreKit returns the localised price
-const PRIVACY_POLICY_URL := "https://danielhommersom.github.io/PufferfishRun/" ## TODO verify the live URL
+const PRIVACY_POLICY_URL := "https://danielhommersom.github.io/PufferfishRun/"
 const SUPPORT_EMAIL := "digitaldiamonds.ai@gmail.com"
 
 # ── Medals ───────────────────────────────────────────
