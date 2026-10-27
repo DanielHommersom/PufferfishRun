@@ -53,7 +53,7 @@ func _ready() -> void:
 		_log("no AdMob plugin on this platform — interstitials off, rewarded %s" % ("simulated" if OS.is_debug_build() else "off"))
 	elif SaveManager.ads_consent_done:
 		# Consent was handled in an earlier session: start right away, no prompts.
-		call_deferred("_start_flow")
+		call_deferred("start_flow")
 
 
 func rewarded_unit_id() -> String:
@@ -79,11 +79,11 @@ static func should_show_interstitial(lifetime_games: int, since_ad: int, seconds
 	return seconds_since_last_ad >= Constants.AD_MIN_INTERVAL
 
 
-## Called when the GameOver screen opens. Starts the consent flow once and decides whether the
-## next button tap shows an interstitial.
+## Called when the GameOver screen opens. Decides whether the next button tap shows an
+## interstitial. (The consent flow normally ran at launch already; this is a fallback.)
 func on_player_died(new_best := false, watched_rewarded := false) -> void:
 	SaveManager.register_game_played()
-	_start_flow()
+	start_flow()
 	games_since_ad += 1
 	_interstitial_pending = should_show_interstitial(SaveManager.games_played, games_since_ad, _seconds_since_last_ad(), new_best, watched_rewarded)
 	_log("game over #%d (since ad %d) → interstitial %s" % [SaveManager.games_played, games_since_ad, "pending" if _interstitial_pending else "skipped"])
@@ -163,7 +163,10 @@ func show_rewarded(done: Callable) -> void:
 
 # ── Startup flow: UMP consent → explainer → ATT → MobileAds.initialize ─────
 
-func _start_flow() -> void:
+## Runs once per launch, from the menu right after the splash: on a fresh install it shows the
+## consent form (where required), our explainer and Apple's tracking prompt before any ad data
+## is collected; later launches start the ads straight away without prompts.
+func start_flow() -> void:
 	if not _admob or ads_started:
 		return
 	ads_started = true

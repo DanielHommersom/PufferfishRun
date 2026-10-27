@@ -111,6 +111,11 @@ func _ready() -> void:
 
 
 func _after_splash() -> void:
+	# First launch: consent + App Tracking Transparency before anything else (App Review
+	# expects the tracking prompt right away, not only after the first game over).
+	await AdManager.start_flow()
+	if not is_inside_tree():
+		return
 	# Daily reward pops up once per session when it's available
 	if Daily.reward_available() and not _daily_shown_this_session:
 		_daily_shown_this_session = true

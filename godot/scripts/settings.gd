@@ -140,6 +140,7 @@ func _refresh_ads() -> void:
 	else:
 		_ads_btn.text = tr("REMOVE ADS  %s") % PurchaseManager.remove_ads_price
 		_ads_btn.color = Constants.UI_ORANGE
+		_ads_btn.interactive = true # e.g. after a refund revoked the purchase
 
 
 func _buy_remove_ads() -> void:
